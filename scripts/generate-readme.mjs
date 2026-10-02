@@ -17,108 +17,146 @@ function mapList(items) {
   return items.map(i => `- ${i.item}`).join('\n');
 }
 
-function mapNews(items) {
+function mapChecks(items) {
   if (!items || !items.length) return '';
-  return items.map(i => `  <li>${i.item}<sup style="color: red; font-weight: bold; font-size: 11px;">NEW</sup></li>`).join('\n');
+  return items.map(i => `- ✅ ${i.item}`).join('\n');
 }
 
+function mapNews(items) {
+  if (!items || !items.length) return '';
+  return items.map(i => `- ✨ ${i.item.replace('NEW', '<sup>**NEW!**</sup>')}`).join('\n');
+}
+
+// Convert "Dr. MANISH KUMAR" to "Dr. Manish Kumar"
+const formatName = data.name.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
+const formattedRole = data.role.replace(/ /g, '_');
+
+// Parse dynamic badges
+const firstSpec = (data.specialization && data.specialization[0]) ? data.specialization[0].item.split(' ').slice(0, 2).join('_') : 'Specialization';
+const firstExp = (data.experience && data.experience[0]) ? data.experience[0].item : '';
+const expMatch = firstExp.match(/^(\d+\+?)/);
+const expBadgeText = expMatch ? `${expMatch[1]}_Years` : 'Experience';
+
+// Parse dynamic affiliation parts
+const affilParts = (data.affiliation || '').split(',').map(s => s.trim().replace(/\.$/, ''));
+const deptName = affilParts[0] || 'Department';
+const schoolName = affilParts[1] || 'School';
+const uniName = affilParts[2] || 'University';
+
 const readmeTemplate = `<div align="center">
-  <img src="public/zz3.png" width="150" alt="${data.name}" style="border-radius: 50%; border: 2px solid #b30000; padding: 5px;" />
-  <h1 style="color: #b30000; margin-bottom: 0;">${data.name}</h1>
-  <p style="font-size: 18px; margin-top: 5px;"><b>${data.role}</b></p>
-  <p>
-    ${data.affiliation}<br>
-    <b>E-mail:</b> ${data.email1} &nbsp;|&nbsp; ${data.email2} <br>
-    <b>Phone:</b> ${data.phone}
-  </p>
-  <p>
-    <a href="${data.googleScholar}">Google Scholar</a> &nbsp;&bull;&nbsp;
-    <a href="${data.orcid}">ORCID</a>
-  </p>
+
+# ${formatName}
+
+> ${data.role} • ${data.affiliation.split(',').join(' •')}
+
 </div>
 
-<hr style="border: 1px solid #e0e0e0;">
+<div align="center">
 
-<ul style="list-style-type: disc;">
-${mapNews(data.recentNews)}
-</ul>
+![Role](https://img.shields.io/badge/Role-${formattedRole}-007ACC?style=for-the-badge)
+![Specialization](https://img.shields.io/badge/Specialization-${firstSpec}-2EA043?style=for-the-badge)
+![Experience](https://img.shields.io/badge/Experience-${expBadgeText.replace(/\+/g, '%2B')}-D97917?style=for-the-badge)
+[![Google Scholar](https://img.shields.io/badge/Google%20Scholar-4285F4?style=for-the-badge&logo=google-scholar&logoColor=white)](${data.googleScholar})
+[![ORCID](https://img.shields.io/badge/ORCID-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](${data.orcid})
 
-<hr style="border: 1px solid #e0e0e0;">
+</div>
 
-<table width="100%">
-<tr>
-<td width="50%" valign="top">
+<br>
 
-<h3 style="color: #b30000;">Area of Specialization :</h3>
-
-${mapList(data.specialization)}
-
-</td>
-<td width="50%" valign="top">
-
-<h3 style="color: #b30000;">Academic Education :</h3>
-
-${mapList(data.education)}
-
-</td>
-</tr>
-</table>
-
-<table width="100%">
-<tr>
-<td width="50%" valign="top">
-
-<h3 style="color: #b30000;">Experience & Administration :</h3>
-
-${mapList(data.experience)}
-${mapList(data.administrativeExperience)}
-
-</td>
-<td width="50%" valign="top">
-
-<h3 style="color: #b30000;">Events & Workshops Organized :</h3>
-
-${mapList(data.conferenceOrganized)}
-${mapList(data.workshopOrganized)}
-${mapList(data.eventOrganized)}
-
-</td>
-</tr>
-</table>
-
-<table width="100%">
-<tr>
-<td width="33%" valign="top">
-
-<h3 style="color: #b30000;">Publication & Patents :</h3>
-
-${mapList(data.publications)}
-${mapList(data.patents)}
-
-</td>
-<td width="33%" valign="top">
-
-<h3 style="color: #b30000;">Research Supervision :</h3>
-
-${mapList(data.supervision)}
-
-</td>
-<td width="33%" valign="top">
-
-<h3 style="color: #b30000;">Labs Established :</h3>
-
-${mapList(data.labsEstablished)}
-
-</td>
-</tr>
+<table align="center">
+  <tr>
+    <td align="center" width="280">
+      <img src="public${data.profilePhoto}" width="160" alt="${formatName}" style="border: 2px solid #007ACC; padding: 5px; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.2);"/>
+    </td>
+    <td width="550" valign="top">
+      <h2>👤 Profile Overview</h2>
+      <hr>
+      <p><b>🗣️ Name:</b> ${formatName}</p>
+      <p><b>💼 Position:</b> ${data.role}</p>
+      <p><b>🏢 Department:</b> ${deptName.replace('Department of ', '')}</p>
+      <p><b>🏫 Under:</b> ${schoolName}</p>
+      <p><b>🏛️ University:</b> ${uniName}</p>
+      <p><b>📧 Email:</b> ${data.email1}</p>
+    </td>
+  </tr>
 </table>
 
 ---
 
-<br>
-<p align="center">
-  <small>Developed by <a href="https://github.com/vikasingh0897">vikasingh0897</a></small>
-</p>
+## 📢 Latest Updates
+
+${mapNews(data.recentNews)}
+
+---
+
+## 🎓 Academic Education
+
+| Degree | Specialization | Institute / University |
+| :--- | :--- | :--- |
+${data.education ? data.education.map(e => {
+  const parts = e.item.split(/[-–]/);
+  if (parts.length >= 2) {
+    const degree = parts[0].trim();
+    const rest = parts.slice(1).join('-').split(',');
+    const spec = rest[0].trim();
+    const inst = rest.slice(1).join(',').trim();
+    return `| **${degree}** | ${spec} | ${inst} |`;
+  }
+  return `| - | ${e.item} | - |`;
+}).join('\n') : ''}
+
+---
+
+## 💡 Area of Specialization
+
+${mapChecks(data.specialization)}
+
+---
+
+## 💼 Experience & Administration
+
+### Academic Experience
+
+${mapList(data.experience)}
+
+### Administrative Roles
+
+${mapList(data.administrativeExperience)}
+
+---
+
+## 📅 Events & Workshops Organized
+
+${[
+  ...(data.conferenceOrganized || []),
+  ...(data.workshopOrganized || []),
+  ...(data.eventOrganized || [])
+].map(e => `- ${e.item}`).join('\n')}
+
+---
+
+## 📊 Impact & Contributions
+
+### 📚 Publications & Patents
+
+${data.publications ? data.publications.map(p => `- ${p.item}`).join('\n') : ''}
+${data.patents ? data.patents.map(p => `- ${p.item}`).join('\n') : ''}
+
+### 👨‍🎓 Research Supervision
+
+${data.supervision ? data.supervision.map(s => `- ${s.item}`).join('\n') : ''}
+
+### 🏗️ Labs Established
+
+${mapList(data.labsEstablished)}
+
+---
+
+<div align="center">
+
+_Designed & Developed with ❤️ by [vikasingh0897](https://github.com/vikasingh0897)_
+
+</div>
 `;
 
 fs.writeFileSync(readmePath, readmeTemplate, 'utf-8');
