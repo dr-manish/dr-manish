@@ -12,7 +12,7 @@ logo: /cuh-logo.png
 profilePhoto: /zz3.png
 cvFile: /cv.pdf
 recentNews:
-  - item: 'Manish Kumar and Sangeeta, et al, “Renewable Energy Powered Poles to detect noise pollution”, Design Granted on 03/03/2025.'
+  - item: 'Manish Kumar, Sangeeta, et al. "Renewable Energy-Powered Poles to Detect Noise Pollution." Design patent granted March 3, 2025.'
   - item: 'Muralidhar Nayak Bhukya and Manish Kumar, et al, “Facial Emotions based online exam cheat detection”, published 08/03/2024.'
 specialization:
   - item: Renewable Energy Sources
