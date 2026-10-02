@@ -1,0 +1,25 @@
+---
+title: "Electrical Machine"
+topics:
+  - topicName: "UNIT-III DFIG Induction Generator"
+    pdf: "/UNIT-III_DFIG Induction Generator.pdf"
+  - topicName: "Unit 1"
+    pdf: "/unit 1.pdf"
+  - topicName: "Unit II"
+    pdf: "/unit II.pdf"
+  - topicName: "Unit III Single Phase Induction Motor"
+    pdf: "/unit III _ Single Phase Indution Motor.pdf"
+  - topicName: "Unit III self excited generator"
+    pdf: "/unit III_self excited generator.pdf"
+  - topicName: "Unit IV Concept of Synchronous Reactance Synchronous Machine"
+    pdf: "/unit IV_ Concept of Synchronous Reactance_Synchronous Machine.pdf"
+  - topicName: "Unit IV Excitation Systems and Armature Reaction Synchronous Machine"
+    pdf: "/unit IV_ Excitation Systems and Armature Reaction Synchronous Machine.pdf"
+  - topicName: "Unit IV Parallel Operation of two Synchronous Generators"
+    pdf: "/unit IV_ Parallel Operation of two Synchronous Generators.pdf"
+  - topicName: "Unit IV Synchronous Generator operation"
+    pdf: "/unit IV_ Synchronous Generator operation.pdf"
+  - topicName: "Unit IV Synchronous Machine construction"
+    pdf: "/unit IV_ Synchronous Machine construction .pdf"
+---
+This section contains resources and materials for Electrical Machine.

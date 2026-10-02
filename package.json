@@ -1,0 +1,33 @@
+{
+  "name": "temp-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "tinacms dev -c \"next dev\"",
+    "build": "tinacms build --skip-cloud-checks && next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@tinacms/cli": "^3.1.0",
+    "gray-matter": "^4.0.3",
+    "next": "16.3.6",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-markdown": "^10.1.0",
+    "slate": "^0.126.2",
+    "slate-dom": "^0.126.0",
+    "slate-hyperscript": "^0.127.0",
+    "slate-react": "^0.127.1",
+    "tinacms": "^3.14.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "typescript": "^5"
+  }
+}
+

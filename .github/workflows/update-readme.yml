@@ -1,0 +1,41 @@
+name: Update README Dynamically
+
+on:
+  push:
+    paths:
+      - 'content/home/index.md'
+    branches:
+      - main
+      - master
+      - add-econtent
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install gray-matter
+
+      - name: Generate new README
+        run: node scripts/generate-readme.mjs
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "docs: auto-update README from TinaCMS" && git push)

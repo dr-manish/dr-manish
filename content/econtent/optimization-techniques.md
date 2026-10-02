@@ -1,0 +1,25 @@
+---
+title: "Optimization Techniques"
+topics:
+  - topicName: "ARTIFICIAL NEURAL NETWORKS ALGORITHM"
+    pdf: "/ARTIFICIAL NEURAL NETWORKS ALGORITHM.pdf"
+  - topicName: "Fuzzy Logic Algorithm"
+    pdf: "/Fuzzy Logic Algorithm.pdf"
+  - topicName: "Tabu search algorithm"
+    pdf: "/Tabu search algorithm_F.pdf"
+  - topicName: "UNIT-I&II MATLAB based OPT in power system"
+    pdf: "/UNIT-I&II_MATLAB based OPT in power system.pdf"
+  - topicName: "UNIT-III Ant Colony Optimization"
+    pdf: "/UNIT-III_Ant Colony Optimization.pdf"
+  - topicName: "UNIT-III Genetic Algorithms"
+    pdf: "/UNIT-III_Genetic Algorithms.pdf"
+  - topicName: "UNIT-II Optimization in Electrical Engineering"
+    pdf: "/UNIT-II_Optimization in Electrical Engineering.pdf"
+  - topicName: "UNIT-I Design optimization"
+    pdf: "/UNIT-I_ Design optimization.pdf"
+  - topicName: "UNIT-I History of optimization techniques"
+    pdf: "/UNIT-I_ History of optimization techniques.pdf"
+  - topicName: "UNIT-II Single objective optimization algorithms"
+    pdf: "/unit-II Single objective optimization algorithms.pdf"
+---
+Learn about various Optimization Techniques used in engineering, including algorithms, tools, and methodologies across multiple units.

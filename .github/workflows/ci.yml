@@ -1,0 +1,49 @@
+name: CI - Build & Lint
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - add-econtent
+      - feat/add-dynamic-readme
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    name: Build & Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+        continue-on-error: true
+
+      - name: Build project
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          if [ -d ".next" ]; then
+            echo "✅ Build succeeded — .next directory exists"
+            echo "Static pages:"
+            ls -la .next/server/app/ 2>/dev/null || echo "  (no static pages found, which is OK for dynamic routes)"
+          else
+            echo "❌ Build failed — .next directory is missing"
+            exit 1
+          fi
