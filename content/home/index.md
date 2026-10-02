@@ -76,4 +76,3 @@ labsEstablished:
   - item: Energy Lab-1
 ---
 
-<!-- trigger update -->

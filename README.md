@@ -5,7 +5,7 @@
   <p>
     Department of Electrical Engineering, School of Engineering and Technology, Central University of Haryana.<br>
     <b>E-mail:</b> khanagwal.manish@gmail.com &nbsp;|&nbsp; manish.kumar@cuh.ac.in <br>
-    <b>Phone:</b> +919255140623
+    <b>Phone:</b> +91 9255140623
   </p>
   <p>
     <a href="https://scholar.google.com/citations?user=cnV7C-4AAAAJ&hl=en">Google Scholar</a> &nbsp;&bull;&nbsp;
