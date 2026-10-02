@@ -53,14 +53,6 @@ export default async function Sidebar() {
           </div>
         </div>
 
-        <div className="visitor-counter-wrapper">
-          <span>Profile Visitors</span>
-          <img
-            src="https://hitwebcounter.com/counter/counter.php?page=14207865&style=0006&nbdigits=5&type=page&initCount=0"
-            alt="Visitor counter"
-            title="Free Counter"
-          />
-        </div>
       </div>
     </MobileMenuToggle>
   );

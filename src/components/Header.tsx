@@ -35,7 +35,15 @@ export default async function Header() {
           <strong>{affiliation}</strong>
         </div>
         <div className="contact-info">
-          <strong>E-mail: </strong> {email1} &nbsp;|&nbsp; {email2 && <>{email2} &nbsp;|&nbsp;</>} <strong>Phone:</strong> {phone}
+          <span className="contact-item"><strong>E-mail: </strong> <a href={`mailto:${email1}`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>{email1}</a></span>
+          <span className="separator">&nbsp;|&nbsp;</span>
+          {email2 && (
+            <>
+              <span className="contact-item"><a href={`mailto:${email2}`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>{email2}</a></span>
+              <span className="separator">&nbsp;|&nbsp;</span>
+            </>
+          )}
+          <span className="contact-item"><strong>Phone:</strong> <a href={`tel:${phone.replace(/\s+/g, '')}`} style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}>{phone}</a></span>
         </div>
       </div>
       <div id="myphoto">
